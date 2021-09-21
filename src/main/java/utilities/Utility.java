@@ -14,7 +14,7 @@ public class Utility {
 
             TakesScreenshot scrnsht = (TakesScreenshot) driver;
             File source = scrnsht.getScreenshotAs(OutputType.FILE);
-            FileHandler.copy(source, new File("/home/r3dm0nk/IdeaProjects/DemoGuru/src/Screenshots/"+filename+".png"));
+            FileHandler.copy(source, new File("src/Screenshots/"+filename+".png"));
             System.out.println("Screenshot Captured... \n Path : "+filename+".png");
 
         }catch (Exception exc){
