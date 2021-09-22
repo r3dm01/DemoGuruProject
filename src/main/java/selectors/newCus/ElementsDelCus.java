@@ -1,8 +1,8 @@
 package selectors.newCus;
 
-public class ElementsDelAcc {
+public class ElementsDelCus {
 
-    //DELETE ACCOUNT
+    //DELETE CUSTOMER
 //    public String delAccPage = "//a[@href=\"DeleteCustomerInput.php\"]";
     public String delAccPage = "//a[@href=\"DeleteCustomerInput.php\"]";
     public String delCusID = "//input[@name=\"cusid\"]";

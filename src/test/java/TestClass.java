@@ -21,7 +21,7 @@ public class TestClass {
     ElementsNewCus elementsNewCus = new ElementsNewCus();
 //    Inputs input = new Inputs();
     NewAcc newAcc = new NewAcc();
-    DelAcc delAcc = new DelAcc();
+    DelCus delCus = new DelCus();
 
 
     public String newCusID;
@@ -122,8 +122,8 @@ public class TestClass {
 
             newAccountID = accountID;
         }
-            //DELETE CUSTOMER
-            delAcc.delAcc(browser, newCusID);
+            //DELETE CUSTOMER (ONLY AFTER DELETING ALL ACCOUNTS FOR THE CUSTOMER)
+            delCus.delCustomer(browser, newCusID);
             //CONFIRMATION ALERT
             WebDriverWait webDriverWait = new WebDriverWait(browser.driver, 15);
             webDriverWait.until(ExpectedConditions.alertIsPresent());
