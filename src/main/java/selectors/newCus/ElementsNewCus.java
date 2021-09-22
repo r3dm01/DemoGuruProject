@@ -15,7 +15,7 @@ public class ElementsNewCus {
     public String submitBtn = "//input[@name=\"sub\"]";
 
     public String newCus = "//p[@class=\"heading3\"]";
-    public String cusID = "//tr[4]";
+    public String cusID = "//tr[4]/td[2]";
 
     //NEW ACCOUNT
    public String customerId = "//input[@name=\"cusid\"]";
@@ -24,4 +24,9 @@ public class ElementsNewCus {
 
     public String subBtn = "//input[@value=\"submit\"]";
     public String newAccPage = "//a[@href=\"addAccount.php\"]";
+
+    public String newAccTable  = "//table[@id=\"account\"]";
+    public String newAccID = "//tr[4]/td[2]";
+
+
 }

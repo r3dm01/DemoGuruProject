@@ -23,7 +23,8 @@ public class TestClass {
 //    Inputs input = new Inputs();
     NewAcc newAcc = new NewAcc();
 
-    public static String newCusID;
+    public String newCusID;
+    public String newAccountID;
 
     @BeforeMethod
     public void homePage(){
@@ -109,6 +110,17 @@ public class TestClass {
         }
         //ADDING NEW ACCOUNT TO NEWLY CREATED CUSTOMER
         newAcc.newAcc(browser, newCusID);
+
+        WebElement newAccTable = browser.driver.findElement(By.xpath(elementsNewCus.newAccTable));
+        if(newAccTable.isDisplayed()){
+
+            WebElement newAccId = browser.driver.findElement(By.xpath(elementsNewCus.newAccID));
+            String accountID = newAccId.getText();
+
+            Utility.screenshot(browser.driver, accountID);
+            newAccountID = accountID;
+
+        }
 
     }
     @AfterMethod
