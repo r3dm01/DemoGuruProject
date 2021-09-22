@@ -12,6 +12,6 @@ public class Inputs {
     public String state = "Gujarat";
     public String pin = "567321";
     public String mobileNum = "8000439024";
-    public String emailAdd = "viru.patel0411@gmail.com"; //CHANGE THIS BEFORE EVERY TEST
+    public String emailAdd = "virupatel04121@gmail.com"; //CHANGE THIS BEFORE EVERY TEST
     public String password = "qaz^kio7";
 }

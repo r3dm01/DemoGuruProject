@@ -11,14 +11,14 @@ public class DelAcc {
 
     ElementsDelAcc elementsDelAcc = new ElementsDelAcc();
 
-    public void delAcc(Browsers browser, String accountID){
+    public void delAcc(Browsers browser, String customerID){
         try {
             WebElement delAccPage = browser.driver.findElement(By.xpath(elementsDelAcc.delAccPage));
             WebDriverWait wait = new WebDriverWait(browser.driver, 15);
             wait.until(ExpectedConditions.elementToBeClickable(delAccPage));
             delAccPage.click();
             WebElement delCusId = browser.driver.findElement(By.xpath(elementsDelAcc.delCusID));
-            delCusId.sendKeys(accountID);
+            delCusId.sendKeys(customerID);
             WebElement submitBtn = browser.driver.findElement(By.xpath(elementsDelAcc.subBtn));
             wait.until(ExpectedConditions.elementToBeClickable(submitBtn));
             submitBtn.click();

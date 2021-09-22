@@ -122,7 +122,8 @@ public class TestClass {
 
             newAccountID = accountID;
         }
-        delAcc.delAcc(browser, newAccountID);
+            //DELETE CUSTOMER
+            delAcc.delAcc(browser, newCusID);
             //CONFIRMATION ALERT
             WebDriverWait webDriverWait = new WebDriverWait(browser.driver, 15);
             webDriverWait.until(ExpectedConditions.alertIsPresent());
