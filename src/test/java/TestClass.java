@@ -1,9 +1,8 @@
-import commonLibs.Browsers;
-import commonLibs.Login;
-import commonLibs.NewAcc;
-import commonLibs.NewCus;
+import commonLibs.*;
 //import inputs.Inputs;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,6 +21,8 @@ public class TestClass {
     ElementsNewCus elementsNewCus = new ElementsNewCus();
 //    Inputs input = new Inputs();
     NewAcc newAcc = new NewAcc();
+    DelAcc delAcc = new DelAcc();
+
 
     public String newCusID;
     public String newAccountID;
@@ -86,9 +87,10 @@ public class TestClass {
         return loginCredentials;
     }
 
-    @Test(priority = 2, description = "Add New Customer & Account")
+    @Test(priority = 2, description = "Add New Customer & Account", enabled = true)
     public void newCusAcc(){
 
+        try{
         //LOGIN
         login.loginSetup("mngr354191", "EmYbepu", browser);
         //ADDING NEW CUSTOMER
@@ -103,8 +105,7 @@ public class TestClass {
 
             WebElement cusID = browser.driver.findElement(By.xpath(elementsNewCus.cusID));
             String NcusID = cusID.getText();
-
-            Utility.screenshot(browser.driver, NcusID);
+            Utility.screenshot(browser.driver, "CustomerID-"+NcusID);
 
             newCusID = NcusID;
         }
@@ -112,17 +113,35 @@ public class TestClass {
         newAcc.newAcc(browser, newCusID);
 
         WebElement newAccTable = browser.driver.findElement(By.xpath(elementsNewCus.newAccTable));
-        if(newAccTable.isDisplayed()){
+        if(newAccTable.isDisplayed()) {
 
             WebElement newAccId = browser.driver.findElement(By.xpath(elementsNewCus.newAccID));
             String accountID = newAccId.getText();
 
-            Utility.screenshot(browser.driver, accountID);
-            newAccountID = accountID;
+            Utility.screenshot(browser.driver, "AccountID-"+accountID);
 
+            newAccountID = accountID;
+        }
+        delAcc.delAcc(browser, newAccountID);
+            //CONFIRMATION ALERT
+            WebDriverWait webDriverWait = new WebDriverWait(browser.driver, 15);
+            webDriverWait.until(ExpectedConditions.alertIsPresent());
+            String ConAlertMess = browser.driver.switchTo().alert().getText();
+            System.out.println(ConAlertMess);
+            browser.driver.switchTo().alert().accept();
+            //ALERT
+            webDriverWait.until(ExpectedConditions.alertIsPresent());
+            String AlertMess = browser.driver.switchTo().alert().getText();
+            System.out.println(AlertMess);
+            browser.driver.switchTo().alert().accept();
+
+        }catch (Exception exception){
+            exception.printStackTrace();
         }
 
     }
+
+
     @AfterMethod
     public void tearDown(){
 

@@ -18,15 +18,17 @@ public class ElementsNewCus {
     public String cusID = "//tr[4]/td[2]";
 
     //NEW ACCOUNT
-   public String customerId = "//input[@name=\"cusid\"]";
-   public String accTyp = "//select[@name=\"selaccount\"]";
-   public String initDep = "//input[@name=\"inideposit\"]";
+    public String newAccPage = "//a[@href=\"addAccount.php\"]";
+    public String customerId = "//input[@name=\"cusid\"]";
+    public String accTyp = "//select[@name=\"selaccount\"]";
+    public String initDep = "//input[@name=\"inideposit\"]";
 
     public String subBtn = "//input[@value=\"submit\"]";
-    public String newAccPage = "//a[@href=\"addAccount.php\"]";
+
 
     public String newAccTable  = "//table[@id=\"account\"]";
     public String newAccID = "//tr[4]/td[2]";
+
 
 
 }
