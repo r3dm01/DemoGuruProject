@@ -12,10 +12,10 @@ public class DelCus {
 
     public void delCustomer(Browsers browser, String customerID){
         try {
-            WebElement delAccPage = browser.driver.findElement(By.xpath(elementsDelCus.delAccPage));
+            WebElement delCusPage = browser.driver.findElement(By.xpath(elementsDelCus.delCusPage));
             WebDriverWait wait = new WebDriverWait(browser.driver, 15);
-            wait.until(ExpectedConditions.elementToBeClickable(delAccPage));
-            delAccPage.click();
+            wait.until(ExpectedConditions.elementToBeClickable(delCusPage));
+            delCusPage.click();
             WebElement delCusId = browser.driver.findElement(By.xpath(elementsDelCus.delCusID));
             delCusId.sendKeys(customerID);
             WebElement submitBtn = browser.driver.findElement(By.xpath(elementsDelCus.subBtn));

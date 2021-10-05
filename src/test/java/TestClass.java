@@ -22,8 +22,9 @@ public class TestClass {
 //    Inputs input = new Inputs();
     NewAcc newAcc = new NewAcc();
     DelCus delCus = new DelCus();
+    DelAcc delAcc = new DelAcc();
 
-
+    //Customer ID and Account ID
     public String newCusID;
     public String newAccountID;
 
@@ -87,7 +88,7 @@ public class TestClass {
         return loginCredentials;
     }
 
-    @Test(priority = 2, description = "Add New Customer & Account", enabled = true)
+    @Test(priority = 2, description = "Add New Customer, assign an Account and delete the account and customer", enabled = true)
     public void newCusAcc(){
 
         try{
@@ -122,10 +123,24 @@ public class TestClass {
 
             newAccountID = accountID;
         }
+
+            //DELETE ACCOUNT CREATED ABOVE
+            delAcc.delAccount(browser, newAccountID);
+            //CONFORMATION ALERT
+            WebDriverWait webDriverWait = new WebDriverWait(browser.driver, 15);
+            webDriverWait.until(ExpectedConditions.alertIsPresent());
+            String ConfirmationAlrtMsg = browser.driver.switchTo().alert().getText();
+            System.out.println(ConfirmationAlrtMsg);
+            browser.driver.switchTo().alert().accept();
+            //ALERT
+            webDriverWait.until(ExpectedConditions.alertIsPresent());
+            String AlertMessage = browser.driver.switchTo().alert().getText();
+            System.out.println(AlertMessage);
+            browser.driver.switchTo().alert().accept();
+
             //DELETE CUSTOMER (ONLY AFTER DELETING ALL ACCOUNTS FOR THE CUSTOMER)
             delCus.delCustomer(browser, newCusID);
             //CONFIRMATION ALERT
-            WebDriverWait webDriverWait = new WebDriverWait(browser.driver, 15);
             webDriverWait.until(ExpectedConditions.alertIsPresent());
             String ConAlertMess = browser.driver.switchTo().alert().getText();
             System.out.println(ConAlertMess);

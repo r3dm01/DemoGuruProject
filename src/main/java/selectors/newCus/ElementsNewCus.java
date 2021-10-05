@@ -2,6 +2,7 @@ package selectors.newCus;
 
 public class ElementsNewCus {
 
+    //NEW CUSTOMER
     public String newCustomerPage = "//a[@href=\"addcustomerpage.php\"]";
     public String cusName = "//input[@name=\"name\"]";
     public String cusDOB = "//input[@name=\"dob\"]";
